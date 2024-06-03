@@ -1,0 +1,175 @@
+<div data-name="emergency" class="page">
+	<div class="navbar">
+		<div class="navbar-bg"></div>
+		<div class="navbar-inner">
+			<div class="left">
+				<a href="#" class="link back ripple-inset">
+					<i class="icon icon-back"></i>
+				</a>
+			</div>
+			<div class="title">Emergency</div>
+		</div>
+	</div>
+	
+	<div class="toolbar tabbar tabbar-labels toolbar-top">
+		<div class="toolbar-inner">
+			<a href="#map-tab" class="tab-link tab-link-active">
+				<i class="f7-icons">map</i>
+				<span class="tabbar-label">Map</span> 
+			</a>
+			<a href="#messaging-tab" class="tab-link">
+				<i class="f7-icons">chat_bubble_text</i>
+				<span class="tabbar-label">Messaging</span>
+			</a>
+			<span class="tab-link-highlight" style="width: 33.3333%; transform: translate3d(0%, 0px, 0px);"></span>
+		</div>
+	</div>
+	
+	<div class="tabs-animated-wrap">
+		<div class="tabs">
+			<div id="map-tab" class="page-content tab tab-active" style="overflow:hidden">
+				<div class="display-flex flex-direction-column" style="min-height:calc(100vh - 112px)">
+					<div>
+						<div class="list" id="selected-alert" style="margin-top:0; margin-bottom:0">
+							<ul>
+								<li>
+									<a href="#" class="item-link item-content popup-open" id="view-alert-medical-records" data-popup=".popup-medical-records"></a>
+								</li>
+								<li>
+									<div class="display-flex fle padding-horizontal padding-bottom" id="alert-responder-action">
+										<button class="button button-fill button-round" id="respond">Accept and Respond</button>
+									</div>
+								</li>
+							</ul>
+						</div>
+						
+						<div class="block-title display-flex align-items-center" id="alerting-responders" style="margin:0; padding:16px; background-color:#252525">
+							<div class="preloader" style="width:20px; height:20px"></div>
+							<div class="padding-horizontal">Alerting Responders</div>
+						</div>
+						
+						<div class="block-title display-none" id="alert-responders-label" style="margin:0; padding:16px; background-color:#252525">
+							<div>Responders</div>
+						</div>
+						
+						<div class="list" id="alert-responders-container" style="margin-bottom:0">
+							<ul></ul>
+						</div>
+					</div>
+					
+					<div class="width-100" id="map-emergency" style="flex:1 1 auto!important"></div>
+				</div>
+			</div>
+			
+			<div id="messaging-tab" class="page-content tab" style="overflow-y:hidden">
+				<div>
+					<div class="messages" style="min-height:calc(100vh - 160px); max-height:calc(100vh - 160px); overflow-y:auto"></div>
+				</div>
+				
+				<div class="toolbar messagebar">
+					<div class="toolbar-inner">
+						<a class="link icon-only ripple-inset" id="capture-photo"><i class="f7-icons">camera</i></a>
+						<div class="messagebar-area">
+							<textarea class="resizable" placeholder="Message"></textarea>
+						</div>
+						<a class="link send-link" href="#" id="send-message">
+							<i class="f7-icons" style="padding-right:5px">paperplane</i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="popup popup-medical-records">
+		<div class="navbar">
+			<div class="navbar-bg"></div>
+			<div class="navbar-inner">
+				<div class="left">
+					<a href="#" class="link ripple-inset popup-close">
+						<i class="icon icon-back"></i>
+					</a>
+				</div>
+				<div class="title">Details</div>
+			</div>
+		</div>
+
+		<div style="max-height:calc(100vh - 56px); overflow: auto">
+			<div class="block-title">Medical Records</div>
+			<div class="list media-list chevron-center display-none" id="alert-medical-records-container">
+				<ul></ul>
+			</div>
+
+			<div class="card" id="alert-no-medical-records" style="margin-left:0; margin-right:0">
+				<div class="card-content-padding text-align-center">No medical records added.</div>
+			</div>
+
+			<div class="block-title">Person to Contact</div>
+			<div class="list chevron-center" id="person-to-contact">
+				<ul>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="f7-icons">person</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">
+									<div class="item-header">Name</div>
+									<div id="name"></div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="f7-icons">envelope</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">
+									<div class="item-header">Email Address</div>
+									<div id="email"></div>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="item-content">
+							<div class="item-media">
+								<i class="f7-icons">phone</i>
+							</div>
+							<div class="item-inner">
+								<div class="item-title">
+									<div class="item-header">Contact Number</div>
+									<div id="contact-number"></div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="block" style="margin-top:20px">
+				<div class="display-flex justify-content-space-around">
+					<div class="padding">
+						<button class="col button button-fill button-round" id="email-the-person-to-contact" style="width:70px; height:70px">
+							<i class="f7-icons">envelope</i>
+						</button>
+					</div>
+
+					<div class="padding">
+						<button class="col button button-fill button-round" id="call-the-person-to-contact" style="width:70px; height:70px">
+							<i class="f7-icons">phone</i>
+						</button>
+					</div>
+
+					<div class="padding">
+						<button class="col button button-fill button-round" id="message-the-person-to-contact" style="width:70px; height:70px">
+							<i class="f7-icons">chat_bubble_text</i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
